@@ -1,6 +1,6 @@
-import { Color, PieceSymbol, Square } from 'chess.js'
 import { useState } from 'react';
 import { MOVE } from '../screens/Game';
+import { Color, PieceSymbol, Square } from 'chess.js';
 
 const ChessBoard = ({chess, board, socket, setBoard }: {
     board: ({
@@ -13,7 +13,6 @@ const ChessBoard = ({chess, board, socket, setBoard }: {
     chess: any;
 }) => {
     const [from, setFrom] = useState<null | Square>(null);
-    const [to, setTo] = useState<null | Square>(null);
   return (
     <div className='w-full text-white-200'>
         {board.map((row, i) => {
