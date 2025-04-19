@@ -6,7 +6,7 @@ import Game from './screens/Game';
 function App() {
 
   return (
-    <div className=' bg-slate-950'>
+    <div className='bg-white'>
      <BrowserRouter>
        <Routes>
          <Route path="/" element={<Landing/>} />

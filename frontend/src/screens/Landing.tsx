@@ -7,18 +7,18 @@ const Landing = () => {
     <div>
        <div className='mt-2'>
          <div className='grid grid-cols-1 gap-4 md:grid-cols-2' >
-           <div>
-              <img src={"/chessboard.jpeg"} />
+           <div >
+              <img src={"/chessboard.jpeg"} className='rounded-xl' />
            </div>
            <div className='p-5'>
-             <h1 className='text-4xl font-bold text-white ' >
+             <h1 className='text-4xl font-bold text-neutral-900 ' >
                Play chess online on the #3 Site!
              </h1>
-             <p className='text-lg mt-2 text-gray-400 ' >
+             <p className='text-lg mt-2 text-neutral-900 ' >
               Play chess with your friends
              </p>
              <div className='mt-4' >
-               <button onClick={() => { navigate("/game") } } className='bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded' >
+               <button onClick={() => { navigate("/game") } } className='bg-neutral-900 hover:neutral-500 text-white font-bold border-none py-2 px-4 rounded' >
                 Play Online
                </button>
              </div>

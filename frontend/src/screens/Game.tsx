@@ -49,7 +49,7 @@ const Game = () => {
           <div className="md:col-span-2 bg-green-200 p-6 rounded-lg flex flex-col items-center justify-center shadow-md">
             {!started ? (
               <button
-                className="bg-green-900 hover:bg-green-600 text-black px-6 py-3 rounded-lg transition-all"
+                className="bg-neutral-900 hover:bg-neutral-800 border-none text-white px-6 py-3 rounded-lg transition-all"
                 onClick={() => {
                   socket.send(JSON.stringify({ type: INIT_GAME }));
                 }}
