@@ -25,11 +25,19 @@ const Game = () => {
           setBoard(chess.board());
           setStarted(true);
           break;
-        case MOVE:
-          chess.move(message.payload);
-          setBoard(chess.board());
-          console.log("Move made");
+
+        case MOVE: {
+          const { from, to, promotion } = message.payload;
+          try {
+            chess.move({ from, to, promotion: promotion || "q" });
+            setBoard(chess.board());
+            console.log("Move made");
+          } catch (err) {
+            console.error("Invalid move received from server", err);
+          }
           break;
+        }
+
         case GAME_OVER:
           console.log("Game over");
           break;
@@ -44,7 +52,12 @@ const Game = () => {
       <div className="max-w-screen-lg w-full">
         <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
           <div className="md:col-span-4 flex justify-center">
-            <ChessBoard chess={chess} setBoard={setBoard} socket={socket} board={board} />
+            <ChessBoard
+              chess={chess}
+              setBoard={setBoard}
+              socket={socket}
+              board={board}
+            />
           </div>
           <div className="md:col-span-2 bg-green-200 p-6 rounded-lg flex flex-col items-center justify-center shadow-md">
             {!started ? (
@@ -57,7 +70,9 @@ const Game = () => {
                 Start Game
               </button>
             ) : (
-              <p className="text-gray-700 text-lg font-semibold">Game in Progress</p>
+              <p className="text-gray-700 text-lg font-semibold">
+                Game in Progress
+              </p>
             )}
           </div>
         </div>
